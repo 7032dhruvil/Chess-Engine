@@ -1,0 +1,105 @@
+.game-setup-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.game-setup-modal {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  padding: 2rem 2.5rem;
+  min-width: 320px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-setup-modal h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.setup-section {
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.setup-section label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.setup-options {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.setup-options button {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.setup-options button.active,
+.setup-options button:hover {
+  background: var(--primary-color);
+  color: var(--text-white);
+  border-color: var(--primary-color);
+}
+
+.side-btn-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-btn, .primary-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: var(--primary-color);
+  color: var(--text-white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(176,125,67,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.start-btn:hover, .primary-btn:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 4px 16px rgba(176,125,67,0.12);
+}
+
+.start-btn:disabled, .primary-btn:disabled {
+  background: #e0e0e0;
+  color: var(--text-white);
+  cursor: not-allowed;
+} 

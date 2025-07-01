@@ -1,0 +1,8 @@
+Flask==2.3.3
+Flask-CORS==4.0.0
+python-chess==1.999
+numpy==1.24.3
+pytest==7.4.2
+pytest-cov==4.1.0
+gunicorn==21.2.0
+python-dotenv==1.0.0 

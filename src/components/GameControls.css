@@ -1,0 +1,136 @@
+.game-controls {
+  background: #fff;
+  border-radius: 1.1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 2rem 1.2rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 220px;
+}
+
+.game-controls.centered-controls {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 560px;
+  box-sizing: border-box;
+  background: var(--bg-secondary);
+  border-radius: 1.1rem;
+  box-shadow: 0 2px 12px rgba(28,39,42,0.06);
+}
+
+.controls-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+
+.controls-actions.spaced-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.controls-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  background: var(--primary-color);
+  color: var(--text-white);
+  border: 2px solid var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+  box-shadow: 0 1px 4px rgba(28,39,42,0.04);
+}
+
+.controls-btn:disabled {
+  background: #e0e0e0;
+  color: var(--text-white);
+  cursor: not-allowed;
+  border: 2px solid #e0e0e0;
+}
+
+.controls-btn:hover:not(:disabled) {
+  background: var(--primary-hover);
+  border: 2px solid var(--primary-hover);
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.controls-status-section {
+  margin-top: 1.5rem;
+  padding-top: 0.7rem;
+  border-top: 1.5px solid #e0e7ef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  justify-content: center;
+  background: var(--bg-primary);
+  border-radius: 0.7rem;
+  box-shadow: 0 1px 4px rgba(28,39,42,0.04);
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1.2rem;
+  margin-bottom: 0;
+}
+
+.current-mode-row {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.controls-label {
+  color: #4a4e69;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.controls-value {
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 1.08rem;
+}
+
+.controls-difficulty {
+  color: #22223b;
+  font-weight: 600;
+  margin-left: 0.3rem;
+  font-size: 1.01rem;
+}
+
+.controls-status {
+  font-size: 1.05rem;
+  color: #22223b;
+  margin-bottom: 0.2rem;
+} 
