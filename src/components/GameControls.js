@@ -36,7 +36,7 @@ const GameControls = ({
           Suggestions
         </button>
       </div>
-      <div className="controls-status-section">
+      <div className="game-status-card">
         <div className="controls-row current-mode-row">
           <span className="controls-label">Current Mode:</span>
           <span className="controls-value">
@@ -47,7 +47,7 @@ const GameControls = ({
           </span>
         </div>
         <div className="controls-row controls-status">
-          <span className="controls-label">State:</span>
+          <span className="controls-label">Status:</span>
           <span className="controls-value">{gameState?.game_state ? gameState.game_state.charAt(0).toUpperCase() + gameState.game_state.slice(1) : '--'}</span>
         </div>
         <div className="controls-row controls-status">

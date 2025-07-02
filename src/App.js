@@ -77,7 +77,25 @@ function App() {
       return;
     }
     
-    const displaySquare = square;
+    // Helper to convert FEN square to display square based on userColor
+    const fenToDisplay = (fenSquare) => {
+      if (userColor === 'white') return fenSquare;
+      const file = fenSquare[0];
+      const rank = fenSquare[1];
+      const flippedRank = String(9 - parseInt(rank));
+      return `${file}${flippedRank}`;
+    };
+
+    // Helper to convert display square to FEN square based on userColor
+    const displayToFen = (displaySquare) => {
+      if (userColor === 'white') return displaySquare;
+      const file = displaySquare[0];
+      const rank = displaySquare[1];
+      const flippedRank = String(9 - parseInt(rank));
+      return `${file}${flippedRank}`;
+    };
+
+    const displaySquare = fenToDisplay(square); // Always use display coordinate
     const piece = getPieceAtSquare(square, gameState.fen);
     
     const canMovePiece = () => {
@@ -97,13 +115,15 @@ function App() {
       if (!canMovePiece()) {
         return;
       }
-      setSelectedSquare(displaySquare);
+      setSelectedSquare(displaySquare); // Set to display coordinate
       const moves = gameState.legal_moves.filter(move => move.startsWith(square));
-      const displayMoves = moves.map(move => move.slice(2, 4));
+      // Convert destination squares to display coordinates for correct indicator
+      const displayMoves = moves.map(move => fenToDisplay(move.slice(2, 4)));
       setValidMoves(displayMoves);
     } else {
-      const fenFrom = selectedSquare;
-      const fenTo = displaySquare;
+      // Convert display coordinates back to FEN coordinates for backend
+      const fenFrom = displayToFen(selectedSquare);
+      const fenTo = displayToFen(displaySquare);
       const move = `${fenFrom}${fenTo}`;
       
       await makeMove(move);
@@ -208,9 +228,24 @@ function App() {
 
   const getMoveSuggestions = async () => {
     try {
-      const response = await ChessAPI.getMoveSuggestions();
-      if (response.success) {
-        toast.success(`Suggestions: ${response.data.suggestions.join(', ')}`);
+      const response = await ChessAPI.getMoveSuggestions(1);
+      if (response.success && response.data.suggestions && response.data.suggestions.length > 0) {
+        const uci = response.data.suggestions[0];
+        // Convert UCI move to display coordinates if user is black
+        const from = uci.slice(0, 2);
+        const to = uci.slice(2, 4);
+        const fenToDisplay = (fenSquare) => {
+          if (userColor === 'white') return fenSquare;
+          const file = fenSquare[0];
+          const rank = fenSquare[1];
+          const flippedRank = String(9 - parseInt(rank));
+          return `${file}${flippedRank}`;
+        };
+        const displayFrom = fenToDisplay(from);
+        const displayTo = fenToDisplay(to);
+        toast.success(`Best Move: ${displayFrom} → ${displayTo}`);
+      } else {
+        toast('No suggestion available.');
       }
     } catch (error) {
       toast.error('Failed to get suggestions');

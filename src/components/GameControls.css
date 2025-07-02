@@ -80,7 +80,7 @@
   object-fit: contain;
 }
 
-.controls-status-section {
+.game-status-card {
   margin-top: 1.5rem;
   padding-top: 0.7rem;
   border-top: 1.5px solid #e0e7ef;
@@ -93,6 +93,8 @@
   background: var(--bg-primary);
   border-radius: 0.7rem;
   box-shadow: 0 1px 4px rgba(28,39,42,0.04);
+  min-height: 140px;
+  height: 170px;
 }
 
 .controls-row {
